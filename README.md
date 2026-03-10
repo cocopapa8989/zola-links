@@ -1,1 +1,198 @@
-# zola-links
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zola | 傾知 Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #f4f3ee;
+            --sage-light: #b7b7a4;
+            --sage-medium: #a5a58d;
+            --sage-dark: #6b705c;
+            --text-dark: #3f4238;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* 連結卡片樣式 */
+        .link-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            border: 1px solid var(--sage-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--sage-medium);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+        .link-card:hover::before {
+            left: 0;
+        }
+
+        .link-card:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 112, 92, 0.15);
+        }
+
+        .link-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 筆名小標籤設計 */
+        .name-tag {
+            display: inline-block;
+            border: 1px solid var(--sage-medium);
+            padding: 2px 12px;
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            margin-top: -5px;
+            color: var(--sage-dark);
+            background: transparent;
+        }
+
+        /* 裝飾性背景圖案 (SVG) */
+        .leaf-bg {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-6 flex flex-col items-center">
+
+    <!-- 裝飾性背景圖案 -->
+    <svg class="leaf-bg top-[-50px] left-[-50px] w-64 h-64" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6b705c" d="M40,100 C40,40 100,40 100,100 C100,160 160,160 160,100" />
+    </svg>
+    <svg class="leaf-bg bottom-[-50px] right-[-50px] w-80 h-80" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6b705c" d="M100,40 C160,40 160,100 100,100 C40,100 40,160 100,160" />
+    </svg>
+
+    <div class="max-w-md w-full space-y-10">
+        
+        <!-- 個人頭像與資訊 -->
+        <header class="text-center flex flex-col items-center">
+            <div class="inline-block p-1 border border-[#a5a58d] rounded-full mb-6">
+                <div class="p-1 border-2 border-[#a5a58d] rounded-full overflow-hidden">
+                    <img src="https://i.meee.com.tw/RARUfu3.png" alt="Zola Avatar" class="w-28 h-28 rounded-full object-cover shadow-sm bg-white">
+                </div>
+            </div>
+            
+            <div class="space-y-3">
+                <!-- Zola 作為視覺主體 -->
+                <h1 class="text-4xl font-light serif tracking-[0.25em] uppercase text-[#6b705c]">Zola</h1>
+                
+                <!-- 筆名 傾知 作為設計元素 -->
+                <div>
+                    <span class="name-tag font-medium">傾知</span>
+                </div>
+
+                <!-- 更新後的簡介 -->
+                <p class="text-sm text-gray-500 italic px-4 leading-relaxed mt-4">
+                    主攻百合 CP 繪圖創作，<br>
+                    偶爾分享一些生活的碎屑。
+                </p>
+            </div>
+            
+            <!-- 顏色調色盤裝飾 -->
+            <div class="flex justify-center gap-1.5 opacity-40 mt-6">
+                <div class="w-8 h-1 bg-[#6b705c]"></div>
+                <div class="w-8 h-1 bg-[#a5a58d]"></div>
+                <div class="w-8 h-1 bg-[#b7b7a4]"></div>
+            </div>
+        </header>
+
+        <!-- 連結列表區塊 -->
+        <main class="space-y-4">
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/zola_115?igsh=MThwc2lvM25tZjVoNw%3D%3D&utm_source=qr" target="_blank" class="link-card block p-5 rounded-sm text-center">
+                <span class="link-content font-medium tracking-widest flex items-center justify-center gap-2">
+                    📷 Instagram (主要創作)
+                </span>
+            </a>
+
+            <!-- Ko-fi -->
+            <a href="https://ko-fi.com/zola115?utm_source=ig&utm_medium=social" target="_blank" class="link-card block p-5 rounded-sm text-center">
+                <span class="link-content font-medium tracking-widest flex items-center justify-center gap-2">
+                    ☕ 支持我的創作 (Ko-fi)
+                </span>
+            </a>
+
+            <!-- 75 AI -->
+            <a href="https://abr.ge/wbxzdg" target="_blank" class="link-card block p-5 rounded-sm text-center">
+                <span class="link-content font-medium tracking-widest flex items-center justify-center gap-2">
+                    🤖 AI 戀人創作 (75)
+                </span>
+            </a>
+
+            <!-- Threads -->
+            <a href="https://www.threads.net/@zola_115" target="_blank" class="link-card block p-5 rounded-sm text-center">
+                <span class="link-content font-medium tracking-widest flex items-center justify-center gap-2">
+                    🧵 脆 Threads
+                </span>
+            </a>
+
+            <!-- Email 聯絡 -->
+            <a href="mailto:cocopapa8989@gmail.com" class="link-card block p-5 rounded-sm text-center">
+                <span class="link-content font-medium tracking-widest flex items-center justify-center gap-2">
+                    ✉️ 聯絡我 (Email)
+                </span>
+            </a>
+
+        </main>
+
+        <!-- 底部裝飾 -->
+        <footer class="text-center pt-12 space-y-6">
+            <div class="relative flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                    <div class="w-full border-t border-[#a5a58d] opacity-30"></div>
+                </div>
+                <span class="relative px-4 bg-[#f4f3ee] serif italic text-sm text-[#a5a58d]">GL Art & Life</span>
+            </div>
+            
+            <p class="text-[10px] uppercase tracking-[0.4em] text-gray-400">© 2024 Qing Zhi / Zola</p>
+        </footer>
+
+    </div>
+
+    <!-- 點擊觸感優化 -->
+    <script>
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.97)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+        });
+    </script>
+</body>
+</html>
